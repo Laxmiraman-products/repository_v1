@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spices - Laxmiraman</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script>
+    function addToCart(productName) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(productName);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(productName + " added to cart!");
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Spices</h1>
+    <a href="../index.html">← Back to Home</a> | <a href="../cart.html">Cart</a>
+  </header>
+
+  <main class="product-grid">
+    <div class="product-card">
+      <img src="../images/cinnamon.jpg" alt="Cinnamon Sticks" class="product-image" />
+      <h2 class="product-name">Cinnamon Sticks</h2>
+      <p class="product-price">£3.99</p>
+      <button onclick="addToCart('Cinnamon Sticks')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/dryginger.jpg" alt="Dry Ginger" class="product-image" />
+      <h2 class="product-name">Dry Ginger</h2>
+      <p class="product-price">£2.99</p>
+      <button onclick="addToCart('Dry Ginger')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/blackpepper.jpg" alt="Black Pepper" class="product-image" />
+      <h2 class="product-name">Black Pepper</h2>
+      <p class="product-price">£4.49</p>
+      <button onclick="addToCart('Black Pepper')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/cardamom.jpg" alt="Cardamom" class="product-image" />
+      <h2 class="product-name">Cardamom</h2>
+      <p class="product-price">£5.29</p>
+      <button onclick="addToCart('Cardamom')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/turmeric.jpg" alt="Turmeric Powder" class="product-image" />
+      <h2 class="product-name">Turmeric Powder</h2>
+      <p class="product-price">£3.59</p>
+      <button onclick="addToCart('Turmeric Powder')">Add to Cart</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Laxmiraman. All rights reserved.</p>
+  </footer>
+</body>
+</html>
