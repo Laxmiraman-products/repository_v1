@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Millets - Laxmiraman</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script>
+    function addToCart(productName) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(productName);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(productName + " added to cart!");
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Millets</h1>
+    <a href="../index.html">← Back to Home</a> | <a href="../cart.html">Cart</a>
+  </header>
+
+  <main class="product-grid">
+    <div class="product-card">
+      <img src="../images/foxtail.jpg" alt="Foxtail Millet" class="product-image" />
+      <h2 class="product-name">Foxtail Millet</h2>
+      <p class="product-price">£4.99</p>
+      <button onclick="addToCart('Foxtail Millet')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/pearlmillet.jpg" alt="Pearl Millet" class="product-image" />
+      <h2 class="product-name">Pearl Millet</h2>
+      <p class="product-price">£3.49</p>
+      <button onclick="addToCart('Pearl Millet')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/fingermillet.jpg" alt="Finger Millet" class="product-image" />
+      <h2 class="product-name">Finger Millet</h2>
+      <p class="product-price">£4.29</p>
+      <button onclick="addToCart('Finger Millet')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/littlemillet.jpg" alt="Little Millet" class="product-image" />
+      <h2 class="product-name">Little Millet</h2>
+      <p class="product-price">£3.99</p>
+      <button onclick="addToCart('Little Millet')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="../images/barnyardmillet.jpg" alt="Barnyard Millet" class="product-image" />
+      <
