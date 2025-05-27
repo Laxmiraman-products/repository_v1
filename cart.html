@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping Cart - Laxmiraman</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItems = document.getElementById('cart-items');
+      const totalPrice = document.getElementById('total-price');
+      
+      cartItems.innerHTML = '';
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p>Your cart is empty.</p>';
+        totalPrice.textContent = '';
+        return;
+      }
+      
+      let itemCounts = {};
+      cart.forEach(item => {
+        itemCounts[item] = (itemCounts[item] || 0) + 1;
+      });
+
+      let total = 0;
+      for (const [item, qty] of Object.entries(itemCounts)) {
+        const pricePerItem = 4.99; // Set a fixed price or extend later
+        const itemTotal = pricePerItem * qty;
+        total += itemTotal;
+
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <span>${item} (x${qty})</span>
+          <span>£${itemTotal.toFixed(2)}</span>
+          <button onclick="removeFromCart('${item}')">Remove</button>
+        `;
+        cartItems.appendChild(div);
+      }
+
+      totalPrice.textContent = 'Total: £' + total.toFixed(2);
+    }
+
+    function removeFromCart(productName) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const index = cart.indexOf(productName);
+      if (index > -1) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    window.onload = displayCart;
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Your Shopping Cart</h1>
+    <a href="index.html">← Continue Shopping</a>
+  </header>
+  <main>
+    <div id="cart-items" class="cart-list"></div>
+    <h3 id="total-price"></h3>
+  </main>
+  <footer class="footer">
+    <p>© 2025 Laxmiraman. All rights reserved.</p>
+  </footer>
+</body>
+</html>
